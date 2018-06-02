@@ -1,0 +1,847 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="Content-Security-Policy"
+          content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' 'unsafe-eval'; media-src *">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Drug-Safe - SOS</title>
+
+    <link rel="shortcut icon" href="assets/images/gt_favicon.png">
+
+    <!-- Custom styles for our template -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <link href="assets/dp/css/jquery.datepick.css" rel="stylesheet">
+    <link href="assets/tp/stylesheets/wickedpicker.css" rel="stylesheet">
+
+    <link href="assets/js/sign/assets/jquery.signaturepad.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <script src="assets/dp/js/jquery.plugin.min.js"></script>
+    <script src="assets/dp/js/jquery.datepick.js"></script>
+    <script src="assets/tp/src/wickedpicker.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript">
+        function onload() {
+            document.getElementById('canvas').addEventListener('touchstart', function () {
+                $('#sign1').val(1);
+            });
+            document.getElementById('repcanvas').addEventListener('touchstart', function () {
+                $('#sign2').val(1);
+            });
+        }
+    </script>
+    <!--[endif]-->
+</head>
+
+<body class="static-footer" onload="onload();">
+<div class="loader-modal"></div>
+<header class="site-header">
+    <div class="row">
+        <div class="col-xs-2">
+            <a href="#" class="page-back"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+        </div>
+        <div class="col-xs-8">
+            <h1 class="header-title">SOS Form</h1>
+        </div>
+        <div class="col-xs-2 dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars" aria-hidden="true"></i></a>
+            <div class="user-links dropdown-menu">
+                <ul class="clearfix">
+                    <li><a href="javascript:void(0);" onclick="logout();">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="navbar-brand"><a href="index.html"><img src="assets/images/logo.png" alt="Drug Safe"></a></div>
+
+<section class="page-container form-container">
+
+    <div class="section-heading">
+        <h3>Summary of Services</h3>
+        <p>Strictly Confidential</p>
+    </div>
+    <form id="sosformdata" name="sosformdata">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="input-field">
+                    <label>Date</label>
+                    <input type="text" value="" name="sosdate" id="sosdate" onfocus="getblur('sosdate');"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Service Commenced</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="input-field">
+                            <input type="hidden" name="servicecomm" id="servicecomm" class="timepicker">
+                            <input type="number" step="1" min="0" max="23" name="sercomhr" placeholder="Hours"
+                                   id="sercomhr" onblur="checkhour('sercomhr','0','23');"/></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="input-field">
+                            <input type="number" step="1" min="0" onblur="checkminute('sercommin')" max="59" value=""
+                                   name="sercommin" placeholder="Min"
+                                   id="sercommin"/>
+                        </div>
+                    </div>
+                    <!--<div class="col-xs-4">
+                        <div class="input-field">
+                            <select name="sercomdur" id="sercomdur">
+                                <option value="AM">AM</option>
+                                <option value="PM">PM</option>
+                            </select>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Screening Facilities</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="input-field">
+                            <div class="checkbox-field">
+                                <input type="checkbox" id="inhouse" value="1" name="screenfacility">In House<label
+                                    for="inhouse"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="input-field">
+                            <div class="checkbox-field">
+                                <input type="checkbox" id="mobileclinic" value="2" name="screenfacility">Mobile
+                                Clinic<label for="mobileclinic"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row autopopulate-fields">
+            <div class="col-sm-4">
+                <div class="input-field">
+                    <input type="number" placeholder="" step="0.01" min="0" value="0" name="startkm" id="startkm">
+                    <label for="startkm">Start(km)</label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="input-field">
+                    <input type="number" placeholder="" step="0.01" min="0" value="0" name="endkm" id="endkm">
+                    <label for="endkm">End(km)</label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="input-field">
+                    <input type="number" placeholder="" step="0.01" min="0" value="0" name="totalkm" id="totalkm">
+                    <label for="totalkm">Total(km)</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="input-field">
+                    <label>Requesting Client</label>
+                    <select name="reqclient" id="reqclient" onchange="getSites();">
+                        <option value="0">Please select</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="input-field">
+                    <label>Nominated Client Representative</label>
+                    <input type="text" readonly placeholder="Nominated Client Representative" value="" name="nominated1"
+                           id="nominated" class="nominated">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <label>Site or Location</label>
+                <select name="site" id="site" onchange="checkSites();">
+                    <option value="0">Please select</option>
+                </select>
+            </div>
+        </div>
+        <p>Drugs to be tested</p>
+        <div class="row drugtotest">
+            <div class="col-sm-4">
+                <div class="input-field">
+                    <div class="checkbox-field">
+                        <input type="checkbox" class="sos-drugopt" onchange="drugval(this);" id="alcohol" value="1"
+                               name="drugtest">Alcohol<label for="alcohol"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="input-field">
+                    <div class="checkbox-field">
+                        <input type="checkbox" class="sos-drugopt" id="oral-fluid" onchange="drugval(this);" value="2" name="drugtest">Oral
+                        Fluid<label for="oral-fluid"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="input-field">
+                    <div class="checkbox-field urineopt">
+                        <input type="checkbox" class="sos-drugopt" id="urine" onchange="drugval(this);" value="3"
+                               name="drugtest">Urine<label for="urine"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row drugtotest">
+            <!--<div class="col-sm-4">
+                <div class="input-field">
+                    <div class="checkbox-field urineopt">
+                        <input type="checkbox" id="asnza" onchange="drugval(this);" value="4" name="drugtest">AS/NZA 4308:2008<label for="asnza"></label>
+                    </div>
+                </div>
+            </div>-->
+            <div class="col-sm-4">
+                <div class="input-field">
+                    <div class="checkbox-field">
+                        <input type="checkbox" class="sos-drugopt" onchange="drugval(this);" id="other" value="5"
+                               name="drugtest">Other<label for="other"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 othertestsec">
+                <div class="input-field">
+                    <input type="text" placeholder="Enter test name" value="" name="othertest" id="othertest"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-heading donorsection">
+            <h3>Form Details Section</h3>
+        </div>
+        <div id="doner_1">
+            <div class="row">
+                <div class="col-sm-4 col-md-5">
+                    <div class="input-field">
+                        <label class="col-sm-10">Donor Name</label>
+                        <input type="text" name="name1" id="name1">
+                    </div>
+                </div>
+                <div class="col-sm-5 col-md-5">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="input-field">
+                                <label>Result</label>
+                                <select name="result1" id="result1" class="hidedownarrow" disabled="disabled"
+                                        onchange="checkcoc('result1');">
+                                    <option value="0">N</option>
+                                    <option value="1">U</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="input-field">
+                                <label>Drug</label>
+                                <select name="drug1" id="drugnewcounter1" disabled="disabled" class="drugdrop hidedownarrow" onchange="showdrugopt('1');">
+                                    <option value="0">N</option>
+                                    <option value="1">U</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="input-field">
+                                <label>Alcohol</label>
+                                <select name="alcohol1" id="doneralcohol1" disabled="disabled"  class="alcoholdrop hidedownarrow"
+                                        onchange="showalcoholopt('1');">
+                                    <option value="0">N</option>
+                                    <option value="1">U</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="input-field">
+                                <label>Lab</label>
+                                <!--<input type="text" value="" name="lab1" id="lab1" >-->
+                                <select name="lab1" id="lab1" class="hidedownarrow" disabled="disabled"
+                                        onchange="calculateResult();">
+                                    <option value="0">N</option>
+                                    <option value="1">Y</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-2">
+                    <div class="input-field">
+                        <br style="margin-bottom: 5px" />
+                        <button type="button" class="green-btn" onclick="savesosOpenCoc(0,0,'name1','result1','drugtype1','pos1read1','pos2read1','lab1','oth1',0);">COC Form<span><i
+                                class="fa fa-arrow-right"></i></span></button>
+                    </div>
+                </div>
+            </div>
+            <div id="drug1" class="drugoptfield">
+                <p>Drug - Positive</p>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <div class="checkbox-field">
+                                <input type="checkbox" onclick="return false" id="ice1" value="1" name="drugtype1">Ice-Methamphetamine(mAmp)<label
+                                    for="ice1"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <div class="checkbox-field">
+                                <input type="checkbox" onclick="return false" id="marijuana1" value="2" name="drugtype1">THC-Marijuana(THC)<label
+                                    for="marijuana1"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <div class="checkbox-field">
+                                <input type="checkbox" onclick="return false" id="heroin1" value="3" name="drugtype1">Heroine-Opiates(OPI)<label
+                                    for="heroin1"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <div class="checkbox-field">
+                                <input type="checkbox" onclick="return false" id="cocain1" value="4" name="drugtype1">Cocaine-Cocaine(COC)<label
+                                    for="cocain1"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <div class="checkbox-field">
+                                <input type="checkbox" onclick="return false" id="benzos1" value="5" name="drugtype1">Benzodiazepines-Benzodiazepines(BZO)<label
+                                    for="benzos1"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <div class="checkbox-field">
+                                <input type="checkbox" onclick="return false" id="amph1" value="6" name="drugtype1">Amphetamine-Amphetamine(AMP)<label
+                                    for="amph1"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <div class="checkbox-field">
+                                <input type="checkbox" onclick="return false" id="oth1" value="7" name="drugtype1">Other<label
+                                    for="oth1"></label>
+                            </div>
+                            <!--<input type="text" id="oth1" readonly="readonly" value="" placeholder="Other (Specify)" name="oth1"><label
+                                for="oth1"></label>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="alcohol1" class="drugoptfield">
+                <p>Alcohol - Positive</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="input-field">
+                            <input type="number" min="0" readonly="readonly" value="" placeholder="1st Reading" id="pos1read1"
+                                   name="pos1read1">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="input-field">
+                            <input type="number" min="0" readonly="readonly" value="" placeholder="2nd Reading" id="pos2read1"
+                                   name="pos2read1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+
+        <p>
+            <input type="hidden" name="donercount" id="doner-count" value="1"/>
+            <input type="hidden" name="coc-complete-count" id="coc-complete-count" value=""/>
+            <button type="button" class="green-btn" onclick="adddoner();">Add Donor<span><i
+                    class="fa fa-plus"></i></span></button>
+        </p>
+        <br>
+
+        <hr>
+
+        <div class="row autopopulate-fields">
+            <div class="col-sm-6">
+                <div class="label-field">Total Donor Screenings/Collections</div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-field">
+                    <input type="number" placeholder="Urine" readonly step="1" min="0" value="0" name="totscreenu"
+                           id="totscreenu">
+                    <label for="totscreenu">Urine</label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-field">
+                    <input type="number" placeholder="Oral" readonly step="1" min="0" value="0" name="totscreeno"
+                           id="totscreeno">
+                    <label for="totscreeno">Oral</label>
+                </div>
+            </div>
+        </div>
+        <div class="row autopopulate-fields">
+            <div class="col-sm-6">
+                <div class="label-field">Negative Results</div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-field">
+                    <input type="number" placeholder="Urine" readonly value="0" step="1" min="0" name="negresu"
+                           id="negresu">
+                    <label for="negresu">Urine</label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-field">
+                    <input type="number" placeholder="Oral" readonly value="0" step="1" min="0" name="negreso"
+                           id="negreso">
+                    <label for="negreso">Oral</label>
+                </div>
+            </div>
+        </div>
+        <div class="row autopopulate-fields">
+            <div class="col-sm-6">
+                <div class="label-field">Results Requiring Further Testing</div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-field">
+                    <input type="number" placeholder="Urine" readonly value="0" step="1" min="0" name="furtestu"
+                           id="furtestu">
+                    <label for="furtestu">Urine</label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-field">
+                    <input type="number" placeholder="Oral" readonly value="0" step="1" min="0" name="furtesto"
+                           id="furtesto">
+                    <label for="furtesto">Oral</label>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p>Alcohol Results</p>
+        <div class="row autopopulate-fields">
+            <div class="col-sm-4">
+                <div class="input-field">
+                    <input type="number" placeholder="Total No Alcohol Screen" readonly step="1" min="0" value="0"
+                           name="totalcscreen" id="totalcscreen">
+                    <label for="totalcscreen">Total No Alcohol Screen</label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="input-field">
+                    <input type="number" placeholder="Negative Alcohol Results" readonly step="1" min="0" value="0"
+                           name="negalcres" id="negalcres">
+                    <label for="negalcres">Negative Alcohol Results</label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="input-field">
+                    <input type="number" placeholder="Positive Alcohol Results" readonly step="1" min="0" value="0"
+                           name="posalcres" id="posalcres">
+                    <label for="posalcres">Positive Alcohol Results</label>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="input-field">
+                    <label>Refusals</label>
+                    <input type="number" placeholder="No-shows or Others" value="" min="0" step="1" name="refusals"
+                           id="refusals">
+                </div>
+            </div>
+            <!--<div class="col-sm-3">
+                <div class="input-field">
+                    <label>Device Name</label>
+                    <input type="text" placeholder="" value="" name="devicename" id="devicename" >
+                </div>
+            </div>-->
+            <div class="col-sm-2">
+                <div class="input-field">
+                    <label>Extra Used</label>
+                    <input type="text" placeholder="" value="" name="extraused" id="extraused">
+                </div>
+            </div>
+            <!--<div class="col-sm-4">
+                <div class="input-field">
+                    <label>Breath Testing Unit</label>
+                    <input type="text" placeholder="" value="" name="breathtest" id="breathtest" >
+                </div>
+            </div>-->
+        </div>
+        <hr>
+        <!--<div class="section-heading">-->
+            <div class="row">
+                <div class="col-sm-4 col-xs-12 col-md-3">
+                    <h3>Services Concluded</h3>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-4">
+                            <div class="input-field">
+                                <!--<input type="text" name="servicecomm" id="servicecomm" class="timepicker">-->
+                                <input type="number" step="1" min="0" max="23" onblur="checkhour('serconhr','0','23');"
+                                       name="serconhr" placeholder="Hours"
+                                       id="serconhr"/></div>
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            <div class="input-field">
+                                <input type="number" step="1" min="0" max="59" onblur="checkminute('serconmin');"
+                                       name="serconmin" placeholder="Min"
+                                       value="" id="serconmin"/>
+                            </div>
+                        </div>
+                        <!--<div class="col-xs-4">
+                            <div class="input-field">
+                                <select name="sercondur" id="sercondur">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                            </div>
+                        </div>-->
+                    </div>
+                    <input type="hidden" value="" placeholder="HH:MM" name="servicecon" class="timepicker"
+                           id="servicecon"/>
+                </div>
+            </div>
+        <hr>
+        <div class="section-heading AllproductList">
+            <h3>Product Quantity Used</h3>
+        </div>
+        <div id="kit_1" class="productsec">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row" id="kitrow1">
+                        <div class="col-xs-5">
+                            <div class="input-field">
+                                <select name="kit1" id="kit1" class="drugtestprods"
+                                        onchange="checkprodexist('kit1','1');">
+                                    <option value="0">Product</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-5">
+                            <div class="input-field">
+                                <input type="number" placeholder="Qty" value="" step="1" min="1" max="100"
+                                       onblur="checkAvailProds('kitqty1','kit1');" name="kitqty1" id="kitqty1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <p>
+            <input type="hidden" name="kitcount" id="kitcount" value="1"/>
+            <input type="hidden" name="oldkitcount" id="oldkitcount" value="0"/>
+            <input type="hidden" name="totalkitcount" id="totalkitcount" value="0"/>
+            <input type="hidden" name="newkitids" id="newkitids" value=""/>
+            <button type="button" class="green-btn" onclick="addkit();">Add Product<span><i
+                    class="fa fa-plus"></i></span></button>
+        </p>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="input-field">
+                    <label>Collector Declaration</label>
+                    <textarea style="height: 110px">I've conducted the alcohol and/or drug screening/collection service detailed above and confirm that all procedures were undertaken in accordance with the relevant Standard.</textarea>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="input-field">
+                        <label>Collector Name</label>
+                        <input type="text" placeholder="Collector Name" value="" name="collname" id="collname">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="input-field">
+                    <label>Collector Signature</label>
+                    <!--<textarea placeholder="Sign here" name="collsign" id="collsign" ></textarea>-->
+                    <div class="sigPad" id="smoothed" style="width:280px;">
+                        <ul class="sigNav">
+                            <li class="clearButton"><a href="javascript:void(0);"
+                                                       onclick="resetsign('sign1');">Clear</a></li>
+                        </ul>
+                        <div class="sig sigWrapper" style="height:auto;">
+                            <div class="typed"></div>
+                            <canvas id="canvas" class="pad" width="270" height="100"></canvas>
+                            <input type="hidden" name="output" class="output" value="">
+                            <input type="hidden" name="hidden_data" class="hidden_data" id="hidden_data" value="">
+                        </div>
+                    </div>
+                    <div id="show-sign">
+                        <input type="hidden" name="sign1" value="0" id="sign1">
+                        <input type="hidden" name="changesign1" value="0" id="changesign1">
+                        <img id="colsign" src=""/>
+                        <p class="smoothed-change-sign switchopt"><a href="javascript:void(0)"
+                                                                     onclick="showsignpad('smoothed','sign1');">Change
+                            Signature</a></p>
+                        <p class="smoothed-nochange-sign switchopt"><a href="javascript:void(0)"
+                                                                       onclick="hidesignpad('smoothed','sign1');">Keep
+                            Original</a></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="input-field">
+                        <label>Comments or Observation</label>
+                        <input type="text" placeholder="Comments or Observation" value="" name="comments" id="comments">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+
+                <label>Nominated Client Representative</label>
+                <input type="text" readonly placeholder="Nominated Client Representative" value="" name="nominated"
+                       id="nominated1" class="nominated">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6" id="signpadarea">
+                <div class="input-field">
+                    <label>Signature</label>
+                    <!--<textarea placeholder="Sign Here" name="sign" id="sign" ></textarea>-->
+                    <div class="sigPad" id="smoothed1" style="width:280px;">
+                        <ul class="sigNav">
+                            <li class="clearButton"><a href="javascript:void(0);"
+                                                       onclick="resetsign('sign2');">Clear</a></li>
+                        </ul>
+                        <div class="sig sigWrapper" style="height:auto;">
+                            <div class="typed"></div>
+                            <canvas id="repcanvas" class="pad" width="270" height="100"></canvas>
+                            <input type="hidden" name="output1" class="output" value="">
+                            <input type="hidden" name="hidden_data1" class="hidden_data" id="hidden_data1" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <br/>
+                <label class="repsignature">Signature</label>
+                <input type="hidden" name="sign2" value="0" id="sign2">
+                <input type="hidden" name="changesign2" value="0" id="changesign2">
+                <img id="repsign" src=""/>
+                <p class="signpadarea-change-sign switchopt"><a href="javascript:void(0)"
+                                                                onclick="showsignpad('signpadarea','sign2');">Change
+                    Signature</a></p>
+                <p class="signpadarea-nochange-sign switchopt"><a href="javascript:void(0)"
+                                                                  onclick="hidesignpad('signpadarea','sign2');">Keep
+                    Original</a></p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p>Time</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="input-field">
+                    <input type="hidden" value="" placeholder="HH:MM" name="nominedec" class="timepicker"
+                           id="nominedec"/>
+                    <input type="number" step="1" onblur="checkhour('nominehr','0','23')" min="00" max="23"
+                           name="nominehr" placeholder="Hours"
+                           id="nominehr"/></div>
+            </div>
+            <div class="col-xs-4">
+                <div class="input-field">
+                    <input type="number" value="" step="1" onblur="checkminute('nominemin')" min="00" max="59"
+                           name="nominemin" placeholder="Min"
+                           id="nominemin"/>
+                </div>
+            </div>
+            <!--<div class="col-xs-4">
+                <div class="input-field">
+                    <select name="nominedur" id="nominedur">
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                </div>
+            </div>-->
+        </div>
+        <div class="row onlyforagent">
+            <div class="col-md-12 col-sm-12">
+                <div class="input-field">
+                    <textarea name="agentcomment" id="agentcomment" style="height: 110px"
+                              placeholder="Agent's Comment"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <input type="hidden" id="showcocbutton" value="0"/>
+        <input type="hidden" name="donercountpre" id="donercountpre" value="0"/>
+        <input type="hidden" name="donercountpost" id="donercountpost" value="0"/>
+        <input type="hidden" name="newdonerids" id="newdonerids" value=""/>
+        <input type="hidden" name="sosstatus" id="sosstatus" value=""/>
+        <input type="hidden" name="showcocformpending" id="showcocformpending" value="0"/>
+        <div class="btn-container">
+            <button type="button" onclick="savesos('0','0');" class="gray-btn" id="pending">Pending<span><i
+                    class="fa fa-save"></i></span></button>
+            <button type="button" onclick="savesos('1','0');" class="green-btn" id="complete">Completed<span><i
+                    class="fa fa-check"></i></span></button>
+            <button type="button" onclick="finalSubmitDrugTest('1','1');" class="green-btn" disabled="disabled" id="opencoc">Completed<span><i
+                    class="fa fa-check"></i></span></button>
+        </div>
+    </form>
+    <div class="modal fade" id="complete-sos-options" role="dialog">
+        <div class="modal-dialog modal-md">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" onclick="gotomainmenu();">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default col-xs-12 col-sm-12" style="margin-bottom: 5px; margin-left: 0px" id="print-sos" >Print SOS</button>
+                    <button type="button" class="btn btn-default col-xs-12 col-sm-12" style="margin-bottom: 5px; margin-left: 0px" id="print-lab-advice">Print Lab Advice</button>
+                    <button type="button" class="btn btn-default col-xs-12 col-sm-12" style="margin-bottom: 5px; margin-left: 0px" data-dismiss="modal" onclick="gotomainmenu();" id="close-form">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="tnc" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">Terms and Conditions</h2>
+                </div>
+                <div class="modal-body">
+                    <ul class="clearfix  col-md-12">
+                        <li>
+                            Standard operating hours are Monday to Friday 6.30am until 5.30pm.  Penalty rates apply as follows.
+                            <ul class="col-md-12">
+                                <li>
+                                    Monday to Friday 5.30pm-6.30am and all day Saturday penalty on hourly rates x1.5
+                                </li>
+                                <li>
+                                    Sunday and Public Holiday penalty on hourly rates x 2.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>All prices are exclusive of GST and valid for 60 days.  Upon accepting this proposal, the prices shall remain valid for a period of 12 months, unless otherwise stated.</li>
+                        <li>As per table 1, cancellations within 24 hours will incur a 2 hour scheduled service fee.  Cancellations in writing will be recognised.  If any additional costs have been incurred for the booked and cancelled service, this fee may be passed on.</li>
+                        <li>When ordering products or other consumable, freight shall be added.</li>
+                        <li>Callout services are at one hour on site, additional hours charged at hourly rate(s) as above.  Additional pp rates as above</li>
+                    </ul>
+                    <h3>Training</h3>
+                    <ul class="col-md-12">
+                        <li>When booking training for your employees, to take place on your work site, travel, accommodation and any ancillary costs may apply.</li>
+                        <li>Cancellations for in-house courses must be made 5 working days ahead of time and any ancillary expenses already incurred related to the booking shall also be passed on.</li>
+                    </ul>
+                    <h3>For ASQA in house courses</h3>
+                    <ul class="col-md-12">
+                        <li>Cancellations must be made 5 working days ahead of time, otherwise a minimum of 5 people will be charged and already incurred ancillary charges will be passed on.</li>
+                        <li>
+                            If 5 participants are not achieved in these arranged courses, 5 will still be charged.
+                        </li>
+                        <li>For cancellations under 5 days, a substitute may be nominated within 3 days of the scheduled course.</li>
+                        <li>No-shows and waiting time will be charged at full rates.</li>
+                        <li>Certificates will not be issued until payment is received.</li>
+                        <li>Drug-Safe Australia reserves the right to cancel or postpone a training session to another day. All affected participants will be offered the alternate day or a refund.</li>
+                    </ul>
+                    <h3>Disclaimer</h3>
+                    <p>This proposal contains confidential information which is provided to the prospective client to enable them to make an informed decision about the service (s). This information is submitted to the prospective client with the understanding that the prospective client will not share this proposal, its information or any part of, with anyone other than fellow employees of the prospective client organisation who is directly responsible for evaluating and making a decision on proceeding with the proposal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer>&copy; Copyright 2017 Drug-Safe Communities. <a href="javascript:void(0)" onclick="showTnc();">Terms and Conditions</a></footer>
+<script type="text/javascript" src="js/sos.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/sign/jquery.signaturepad.js"></script>
+<script src="assets/js/sign/assets/numeric-1.2.6.min.js"></script>
+<script src="assets/js/sign/assets/json2.min.js"></script>
+<script src="assets/js/sign/assets/bezier.js"></script>
+<script type="text/javascript">
+    $('#sosdate').datepick({dateFormat: 'dd/mm/yyyy'});
+    $('.timepicker').wickedpicker();
+
+    $('.drugtotest .urineopt input:checkbox').click(function () {
+        $('.drugtotest .urineopt input:checkbox').not(this).prop('checked', false);
+    });
+
+    $(document).ready(function () {
+        $('#smoothed, #smoothed1').signaturePad({
+            drawOnly: true,
+            drawBezierCurves: true,
+            lineTop: 200
+        });
+
+        /*$('#canvas').click(function () {
+            $('#sign1').val(1);
+        });
+        $('#repcanvas').click(function () {
+            $('#sign2').val(1);
+        });*/
+    });
+</script>
+</body>
+</html>

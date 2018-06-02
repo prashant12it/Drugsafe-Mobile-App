@@ -1,0 +1,181 @@
+*{margin:0;padding:0;outline:none;}
+html{height:100%;overflow-y:scroll;font-size:18px;}
+body{font-size:1rem;background:#fff;font-family: 'Nunito', sans-serif;color:#252f31;font-weight:300; height: 100%}
+a{color:#00b4d5;text-decoration:none;}
+a:hover, a:focus{color:#00b4d5;opacity:0.7;text-decoration:none;outline:none;}
+
+h1, h2, h3, h4, h5, h6 {margin:0 0 20px;font-weight:400;}
+h1{font-size:2.5rem;}
+h2{font-size:1.66rem;}
+h3{font-size:1.33rem;}
+h4{font-size:1.1rem;font-weight:300;}
+
+p{margin:0 0 20px;}
+ul, ol{margin:0;}
+
+
+input, select, textarea{border-radius:2px;border:1px solid #eee;padding:0px 10px;color:#000;font-size:17px;font-weight:300;line-height:1;background:#eee;}
+#cocformdata textarea, #sosformdata textarea{padding: 10px}
+input[type="text"], input[type="email"], input[type="password"]{width:100%;height:44px;}
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus{font-style:normal;}
+::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder{font-size:17px;color:#999;}
+select{height:44px;width:100%;line-height:44px;}
+textarea{resize:none;width:100%;height:98px;}
+
+img { max-width:100%;}
+hr{border-color:#eee;margin-top:0;margin-bottom:8px;}
+
+::-webkit-input-placeholder { /* Chrome */opacity:0.7;}
+:-ms-input-placeholder { /* IE 10+ */opacity:0.7;}
+::-moz-placeholder { /* Firefox 19+ */opacity:0.7;}
+:-moz-placeholder { /* Firefox 4 - 18 */opacity:0.7;}
+
+/* Helpers */
+.thin { font-weight:300; }
+.page-title { margin-top:20px; font-weight:300; }
+.text-muted { color:#888; }
+.breadcrumb { background:none; padding:0; margin:30px 0 0px 0; }
+ul.list-spaces li{ margin-bottom:10px; }
+
+.btn{font-size:20px;text-decoration:none;border-radius:4px;border:1px solid #23a275;display:inline-block;color:#fff;background:linear-gradient(#25a87d, #209d6c);padding:15px 35px;text-transform:uppercase;font-weight:400;}
+.btn:hover, .btn:focus{text-decoration:none;color:#fff;background:#179566;opacity:1;}
+
+.btn-small{font-size:14px;text-decoration:none;display:inline-block;color:#fff;background:#00b4d5;border:0;border-radius:2px;padding:5px 15px 6px;font-weight:700;text-transform:uppercase;}
+.btn-small:hover, .btn-small:focus{text-decoration:none;color:#fff;background:#858d8d;opacity:1;}
+
+.green-btn{border-radius:2px;position:relative;background:#26aa80;color:#fff;font-weight:700;text-transform:uppercase;font-size:15px;padding:16px 60px 13px 20px;text-align:left;line-height:1;border:0;}
+.green-btn span{border-radius:0 2px 2px 0;position:absolute;right:0;top:0;width:40px;height:100%;background:#1e8866;color:#fff;font-size:1rem;line-height:48px;}
+.green-btn:hover, .green-btn:focus{background:#119c6f;}
+
+.green-btn2{min-width:200px;border-radius:2px;position:relative;background:#26aa80;color:#fff;font-weight:700;text-transform:uppercase;font-size:15px;padding:16px 20px 13px;text-align:center;line-height:1;border:0;}
+.green-btn2:hover, .green-btn2:focus{background:#119c6f;}
+
+.gray-btn{border-radius:2px;position:relative;background:#7e7e7e;color:#fff;font-weight:700;text-transform:uppercase;font-size:15px;padding:16px 60px 13px 20px;text-align:center;line-height:1;border:0;}
+.gray-btn span{border-radius:0 2px 2px 0;position:absolute;right:0;top:0;width:40px;height:100%;background:#555;color:#fff;font-size:1rem;line-height:48px;}
+.gray-btn:hover, .gray-btn:focus{background:#666;}
+
+.button{width:100%;font-size:17px;}
+
+.container{width:auto;max-width:1030px;}
+
+.checkbox-container{position:relative;padding-left:17px;font-size:13px !Important;}
+.checkbox-container input{position:absolute;left:0;top:-4px;}
+.align-right{text-align:right;}
+
+/* header */
+.navbar-brand{float:none;text-align:center;padding:10px;}
+.navbar-brand img{max-width:250px;}
+
+.site-header{padding:15px;background:#26aa80;color:#fff;position:relative;}
+.site-header a{color:#fff;text-decoration:none;}
+.header-title{text-align:center;font-size:22px;margin:0;}
+
+.welcome-screen{background:url(../images/welcome-bg.jpg) no-repeat center 0;background-size:cover;}
+.welcome-screen .navbar-brand{margin-bottom:20px;}
+.login-options div{margin-bottom:20px;text-align:center;}
+.login-options div a{display:inline-block;width:292px;margin:10px 0 0;line-height:1.2;}
+
+
+.user-info{width:32px;height:32px;line-height:31px;border-radius:50%;border:solid 1px #fff;display:inline-block;text-align:center;}
+
+.dropdown{position:static;}
+.dropdown-menu{border:0;border-radius:0;top:100%;width:100%;margin:0;box-shadow:0 0 0;}
+
+.menu-links{background:#00b4d5;padding:15px;text-align:center;font-size:20px;}
+.menu-links ul{list-style:none;margin:0 0 15px;padding:0;display:table;width:100%;}
+.menu-links ul li{margin:0;padding:0 5px;display:table-cell;width:33.33%;}
+.menu-links ul li a{display:block;border-radius:4px;text-decoration:none;padding:7px 10px;color:#000;text-transform:uppercase;font-size:24px;}
+.menu-links ul li:nth-child(1) a{background:#e42140;color:#fff;}
+.menu-links ul li:nth-child(2) a{background:#cccccc;}
+.menu-links ul li:nth-child(3) a{background:#cbe5e5;}
+
+.user-links{background:#26aa80;padding:0 15px 15px;font-size:20px;text-align:left;}
+.user-links ul{list-style:none;margin:0;padding:15px 0 0;border-top:solid 1px rgba(255,255,255,0.5);}.user-links ul > li{border-bottom:solid 1px rgba(255,255,255,0.2);}.user-links ul > li > a{display:block;padding:2px 0 3px;}
+
+.page-container{margin-left:20px;margin-right:20px;padding-bottom:1px;}
+.page-container .row{margin-left:-10px;margin-right:-10px;}
+.page-container .row > div{padding-left:10px;padding-right:10px;}
+
+.form-container p{margin-bottom:5px;}
+
+.login-page{background:url(../images/login-bg.jpg) repeat center 0;background-size:cover;}
+.login-box{text-align:center;padding:30px 0 0;max-width:700px;margin:0 auto;}
+.login-box input, .login-box select{border-radius:2px;border:1px solid #fff;padding:10px 10px;color:#000;font-size:17px;font-weight:400;line-height:1;background:rgba(255,255,255,0.4);box-shadow:rgba(0,0,0,0.2) 2px 2px 2px;height:54px;}
+.login-box .btn{font-size:20px;text-decoration:none;border-radius:4px;border:1px solid #23a275;display:inline-block;color:#fff;background:linear-gradient(#25a87d, #209d6c);padding:15px 35px;text-transform:uppercase;font-weight:400;}
+.login-box .btn:hover, .login-box .btn:focus{text-decoration:none;color:#fff;background:#179566;opacity:1;}
+.login-footer{padding:0 15px 10px;text-align:center;color:#fff;font-size:0.75rem;}
+.login-footer a{color:#fff;}
+
+.form-logo-head{padding:0 15px;background:#ccc;margin-bottom:20px;}
+.form-logo-head h2{padding:25px 0;margin:0;}
+.form-logo-head .form-logo{text-align:right;}
+.form-logo-head .form-logo img{max-width:200px;}
+
+.section-heading{border-bottom:solid 3px #26aa80;margin-bottom:15px;padding:5px 0 1px;}
+.section-heading h3{margin-bottom:5px;}
+.section-heading p{margin-bottom:5px;font-size:1.1rem;}
+
+.label-field{padding:10px 0 0;}
+
+.input-field{margin-bottom:10px;min-height:40px;}
+.input-field label{font-weight:300;}
+
+.checkbox-field {position:relative;padding:6px 0 0 45px;font-size:0.85rem;}
+.checkbox-field input{position:absolute;left:0;top:0;visibility: hidden;}
+.checkbox-field label {cursor: pointer;background:#eee;position: absolute;width:38px;height:38px;left:0;top:0;}
+.checkbox-field label:after{opacity:0;content: '';position: absolute;width:11px;height:18px;top:8px;left:13px;border-bottom:solid 5px #555;border-right:solid 5px #333;transform:rotate(45deg);}
+.checkbox-field label:hover::after {opacity: 0.3;}
+.checkbox-field input[type=checkbox]:checked + label:after {opacity: 1;}
+
+.chain-custody-sign{height:152px;}
+.donor-signature-sign{height:128px;}
+
+.login-page .franchisee-menu{padding-top:40px;padding-bottom:40px;}
+.franchisee-menu .button{max-width:250px;margin:0 auto;display:block;}
+
+
+footer{text-align:center;background:#999;color:#fff;padding:10px;font-size:0.85rem;}
+footer a, footer a:hover, footer a:focus{color:#fff;}
+
+/**** Cart CSS ***/
+.GridMain {border-collapse: separate;border-spacing: 1px;width: 100%;font-family:arial;}
+.GridMain td {padding: 7px 5px;}
+.GridMain .GridHeader th {padding:8px 5px;text-align: left;white-space: nowrap;}
+.GridMain .GridHeader, .GridMain .GridHeader th {background:rgba(200,200,200,0.2);}
+.sizeGuide table.database, td, tr {border-collapse: collapse;}
+.GridMain .GridRow, .GridMain .GridRow td {background-color: rgba(200,200,200,0.1);font-weight: normal;}
+.GridMain .GridAlternateRow, .GridMain .GridAlternateRow td {background-color: rgba(200,200,200,0.1);font-weight: normal;}
+.GridMain .SrNo {text-align: center !important;width: 70px;}
+.GridMain .PriceColumn {text-align: right !important;width: 80px;}
+.GridMain .QtyColumn {text-align: center !important;width: 70px;}
+.GridMain .QtyColumn input {text-align: center;width: 40px;}
+.GridMain .AlignRight {text-align: right;}
+.CartLink a{font-weight:700;}
+.delete{display:inline-block;border-radius:50%;width:30px;height:30px;font-size:14px;text-align:center;padding:5px 0 0;}
+.btn-container{padding:10px 0;text-align:center;}
+.btn-container a+a, .btn-container input+input, .btn-container a+input, .btn-container input+a, .btn-container button+button, .btn-container button+input{margin-left:12px;}
+/**** Cart CSS end***/
+.pagination-container{text-align:center;padding:30px 0 0;}
+.pagination{margin:0 0 15px;}
+.pagination > li > a, .pagination > li > span{font-weight:400;background:#00b4d5;border-color:#fff;color:#fff;line-height:26px;}
+.pagination > li > .active{background:#b7baba;}
+.pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{font-size:14px;}
+.product-list-container{position:relative;padding-top:70px;}
+.cart-button{position:absolute;right:0;top:20px;}
+.product-list-row{background:rgba(0,0,0,0.2);text-align:left;margin-bottom:1px;position:relative;padding:11px 80px 2px 15px;color:#000;}
+.product-list-row:nth-last-child(1){margin-bottom:20px;}
+.product-list-row h3{margin-bottom:0;font-size:1rem;}
+.product-list-row p{margin-bottom:10px;}
+.product-list-row input{background:#fff;padding:1px 5px;box-shadow:none;height:30px !important;max-width:150px;}
+.product-list-row .green-btn{padding:16px 16px 13px;position:absolute;right:15px;bottom:15px;}
+.product-list-row .green-btn:focus, .product-list-row .green-btn:hover{background:rgba(255,255,255,0.2);}
+.product-list-row.center{text-align:center;}
+.product-list-row a{color:#fff;}
+.product-list-row a.del-cart-product{position:absolute;right:-45px;top:2px;display:block;width:30px;text-align:center;}
+
+.static-footer .login-footer{position:static;}
+
+.order-confirmation-page .page-container{padding-top:60px;color:#fff;text-align:center;}
+.order-confirmation-page .login-footer{position:absolute;bottom:0;width:100%;}
+#print-lab-advice > .btn, #print-sos > .btn, #close-form > .btn{font-size: 15px; padding: 7px 27px}
+#print-lab-advice{display: none}

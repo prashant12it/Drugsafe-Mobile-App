@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Drug-Safe",
+  "short_name": "Drug-Safe",
+  "version": "com.drugsafe.app",
+  "description": "Drugsafe app is used to record and manage the data of drugtests performed in different sites on different clients.",
+  "author": "Prashant Singh",
+  "icons": [],
+  "start_url": "index.html"
+}

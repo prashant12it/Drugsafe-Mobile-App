@@ -1,0 +1,840 @@
+﻿    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!--<meta http-equiv="Content-Security-Policy"
+              content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' 'unsafe-eval'; media-src *">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Drug Safe - COC</title>
+
+        <link rel="shortcut icon" href="assets/images/gt_favicon.png">
+
+        <!-- Custom styles for our template -->
+        <link rel="stylesheet" href="assets/css/main.css">
+
+        <link href="assets/dp/css/jquery.datepick.css" rel="stylesheet">
+        <link href="assets/tp/stylesheets/wickedpicker.css" rel="stylesheet">
+        <link href="assets/js/sign/assets/jquery.signaturepad.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]-->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/html5shiv.js"></script>
+        <script src="assets/js/respond.min.js"></script>
+        <script src="assets/dp/js/jquery.plugin.min.js"></script>
+        <script src="assets/dp/js/jquery.datepick.js"></script>
+        <script src="assets/tp/src/wickedpicker.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript">
+            $('.loader-modal').css('display', 'block');
+            function onload() {
+                document.getElementById('coccanvas1').addEventListener('touchstart', function () {
+                    $('#signcoc1').val(1);
+                });
+                document.getElementById('coccanvas2').addEventListener('touchstart', function () {
+                    $('#signcoc2').val(1);
+                });
+                document.getElementById('coccanvas3').addEventListener('touchstart', function () {
+                    $('#signcoc3').val(1);
+                });
+                document.getElementById('coccanvas4').addEventListener('touchstart', function () {
+                    $('#signcoc4').val(1);
+                });
+                /*document.getElementById('coccanvas5').addEventListener('touchstart', function () {
+                    $('#signcoc5').val(1);
+                });
+                document.getElementById('coccanvas6').addEventListener('touchstart', function () {
+                    $('#signcoc6').val(1);
+                });*/
+            }
+        </script>
+
+    </head>
+
+    <body class="static-footer" onload="onload();">
+        <div class="loader-modal"></div>
+        <header class="site-header">
+            <div class="row">
+                <div class="col-xs-2">
+                    <a href="#" class="page-back"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-xs-8">
+                    <h1 class="header-title">COC Form</h1>
+                </div>
+                <div class="col-xs-2 dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                    <div class="user-links dropdown-menu">
+                        <ul class="clearfix">
+                            <li><a href="javascript:void(0);" onclick="logout();">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="navbar-brand"><a href="index.html"><img src="assets/images/logo.png" alt="Drug Safe"></a></div>
+        <section class="page-container form-container">
+
+            <div class="section-heading">
+                <h3>Collection/Screen Date</h3>
+                <p>Requesting Authority</p>
+            </div>
+            <form id="cocformdata" name="cocformdata" >
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="input-field">
+                        <label>Date</label>
+                        <input type="text" name="cocdate" id="cocdate" value="" onfocus="getblur('cocdate');">
+                    </div>
+                </div>
+                <!--<div class="col-sm-3">
+                    <div class="input-field"></div>
+                </div>-->
+                <div class="col-sm-6">
+                    <div class="input-field">
+                        <label>Nominated Representative</label>
+                        <input type="text" name="nominatedrep" id="nominatedrep" value="" readonly />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="input-field">
+                        <label>Client</label>
+                        <input type="text" name="client" id="client" value="" readonly />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-field">
+                        <label>Collection Site</label>
+                        <input type="text" name="site" id="site" value="" readonly />
+                    </div>
+                </div>
+            </div>
+
+            <p>Drugs to be tested</p>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="input-field">
+                        <div class="checkbox-field">
+                            <input type="checkbox" readonly="readonly" class="drugtestopt1" name="drugtest" id="alcohol" value="1">Alcohol<label for="alcohol"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-field">
+                        <div class="checkbox-field">
+                            <input type="checkbox" readonly="readonly" class="drugtestopt" name="drugtest" id="oral-fluid" value="2">Oral Fluid<label for="oral-fluid"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-field">
+                        <div class="checkbox-field">
+                            <input type="checkbox" readonly="readonly" class="drugtestopt" name="drugtest" id="urine" value="3">Urine<label for="urine"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-field">
+                        <div class="checkbox-field">
+                            <input type="checkbox" readonly="readonly" onclick="markandshowform(this);" class="drugtestopt" name="drugtest" id="otherdrug" value="5">Other<label for="otherdrug"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 hide-oth-drugtest">
+                    <div class="input-field">
+                        <div>
+                            <input type="text" readonly="readonly" placeholder="Enter test name" value="" name="othertest" id="othertest"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="section-heading">
+                <h3>Donor Information</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="input-field">
+                        <label>Name</label>
+                        <input type="text" name="doner" id="doner" value="" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-field">
+                        <label>DOB</label>
+                        <input type="text" name="dob" id="dob" value="" onfocus="getblur('dob');">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Employment Type</p>
+                    <div class="row employment">
+                        <div class="col-xs-6">
+                            <div class="input-field">
+                                <div class="checkbox-field">
+                                    <input type="checkbox" id="employee" name="employeetype" value="1">Employee<label for="employee"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="input-field">
+                                <div class="checkbox-field">
+                                    <input type="checkbox" id="contractor" name="employeetype" value="2">Contractor<label for="contractor"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-field">
+                        <label>Contractor Details</label>
+                        <input type="text" id="contractordet" disabled="disabled" name="contractor">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="input-field">
+                        <label>ID Type</label>
+                        <select name="idtype" id="idtype">
+                            <option value="0">Please select</option>
+                            <option value="1">Driving License</option>
+                            <option value="2">Photo ID Card</option>
+                            <option value="3">Passport</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label>ID Number</label>
+                        <input type="text" name="idnumber" id="idnumber" value="">
+                    </div>
+                    <div class="input-field">
+                        <label>Declaration</label>
+                        <textarea style="height: 75px">I consent to the testing of my breath/urine/oral fluid sample for alcohol &/or drugs.</textarea>
+                    </div>
+                    <div class="input-field">
+                        <label>Have you taken any medication, drugs or other non-prescription agents in last week?</label>
+                        <input type="text" name="lastweekq" id="lastweekq" value="">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-field">
+                        <label>Donor Signature</label>
+                        <!--<textarea placeholder="Sign Here" name="donorsign" id="donorsign" class="donor-signature-sign"></textarea>-->
+                        <div class="sigPad" id="coc1" style="width:280px;">
+                            <ul class="sigNav">
+                                <li class="clearButton"><a href="javascript:void(0);" onclick="resetsign('signcoc1');">Clear</a></li>
+                            </ul>
+                            <div class="sig sigWrapper" style="height:auto;">
+                                <div class="typed"></div>
+                                <canvas id="coccanvas1" class="pad" width="270" height="100"></canvas>
+                                <input type="hidden" name="output" class="output" value="">
+                                <input type="hidden" name="hidden_data" class="hidden_data" id="hidden_data" value="">
+                            </div>
+                        </div>
+                        <div id="show-sign">
+                            <input type="hidden" name="signcoc1" value="0" id="signcoc1">
+                            <input type="hidden" name="cocchangesign1" value="0" id="cocchangesign1">
+                            <img id="cocsign1" src="" />
+                            <p class="coc1-change-sign switchopt"><a href="javascript:void(0)" onclick="showsignpad('coc1','signcoc1');">Change Signature</a> </p>
+                            <p class="coc1-nochange-sign switchopt"><a href="javascript:void(0)" onclick="hidesignpad('coc1','signcoc1');">Keep Original</a> </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="input-field">
+                                <input type="text" placeholder="Date" name="donorsigndate" id="donorsigndate" value="" onfocus="getblur('donorsigndate');" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <p>Please Note: NATA/RCPA accreditation does not cover the performance of breath test.</p>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <h3>Form Details Section</h3>
+            </div>
+                <p class="alctest"><strong>Alcohol Breath Test</strong></p>
+                <div class="row alctest">
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <input type="text" placeholder="Device Serial #" name="devicesrno" class="alcinp" id="devicesrno">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <input type="number" step="1" min="0" placeholder="Cut off Level" class="alcinp" name="cutoff" id="cutoff">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <input type="number" placeholder="Wait Time[Minutes]" min="0" max="59" class="alcinp" onblur="checkminute('donwaittime')"  value="" name="donwaittime" id="donwaittime">
+                        </div>
+                    </div>
+                </div>
+                <div class="row alctest">
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <input type="number" step="1" min="0" class="alcinp" name="dontest1" id="dontest1" placeholder="Test 1" value="">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <!--<div class="input-field">
+                            <input type="text" name="dontesttime1" id="dontesttime1" placeholder="Time [24 hr]" value="">
+                        </div>-->
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="input-field">
+                                    <input type="hidden" name="dontesttime1" class="alcinp" id="dontesttime1" placeholder="Time [24 hr]" value="">
+                                    <input type="number" step="1" min="00" max="23" onblur="checkhour('dontesthr1','0','23')" name="dontesthr1" placeholder="Hours"
+                                           id="dontesthr1"/></div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="input-field">
+                                    <input type="number" step="1" class="alcinp" min="00" max="59" onblur="checkminute('dontestmin1')" name="dontestmin1" placeholder="Min"
+                                           id="dontestmin1"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-field">
+                            <input type="number" step="1" min="0" class="alcinp" name="dontest2" id="dontest2" placeholder="Test 2" value="">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <!--<div class="input-field">
+                            <input type="text" name="dontesttime2" id="dontesttime2" placeholder="Time [24 hr]" value="">
+                        </div>-->
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="input-field">
+                                    <input type="hidden" class="alcinp" name="dontesttime2" id="dontesttime2" placeholder="Time [24 hr]" value="">
+                                    <input type="number" class="alcinp" step="1" min="00" max="23" onblur="checkhour('dontesthr2','0','23')" name="dontesthr2" placeholder="Hours"
+                                           id="dontesthr2"/></div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="input-field">
+                                    <input type="number" step="1" class="alcinp" min="00" max="59" onblur="checkminute('dontestmin2')" name="dontestmin2" placeholder="Min"
+                                           id="dontestmin2"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <p class="nonalctest"><strong>Collection of Sample/On-Site Drug Screening Results</strong></p>
+            <div class="row nonalctest">
+                <div class="col-sm-4">
+                    <!--<div class="input-field">
+                        <input type="text" placeholder="Void Time [24 hr]" name="voidtime" id="voidtime" value="">
+                    </div>-->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="customlab">Void Time <span>[24 hr]</span></p>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="input-field">
+                                <input type="hidden" class="oralinp" name="voidtime" id="voidtime" placeholder="Time [24 hr]" value="">
+                                <input type="number" class="oralinp" step="1" min="00" max="23" onblur="checkhour('voidtimehr','0','23')" name="voidtimehr" placeholder="Hours"
+                                       id="voidtimehr"/></div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="input-field">
+                                <input type="number" class="oralinp" step="1" min="00" max="59" onblur="checkminute('voidtimemin')" name="voidtimemin" placeholder="Min"
+                                       id="voidtimemin"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 oral-hide">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="customlab">&nbsp;</p>
+                        </div>
+                        <div class="col-xs-12">
+                    <div class="input-field">
+                        <input type="number" class="nonoralinp" step="1" min="0" placeholder="Sample Temp C" name="sampletempc" id="sampletempc" value="">
+                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!--<div class="input-field">
+                        <input type="text" placeholder="Temp Read Time within 4 min [24 hr]" name="tempreadtime" id="tempreadtime" value="">
+                    </div>-->
+                    <div class="row  oral-hide">
+                        <div class="col-xs-12">
+                            <p class="customlab">Temp Read Time within 4 min <span>[24 hr]</span></p>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="input-field">
+                                <input type="hidden" class="nonoralinp" name="tempreadtime" id="tempreadtime" placeholder="Time [24 hr]" value="">
+                                <input type="number" class="nonoralinp" step="1" min="00" max="23" onblur="checkhour('tempreadtimehr','0','23')" name="tempreadtimehr" placeholder="Hours"
+                                       id="tempreadtimehr"/></div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="input-field">
+                                <input type="number" class="nonoralinp" step="1" min="00" max="59" onblur="checkminute('tempreadtimemin')" name="tempreadtimemin" placeholder="Min"
+                                       id="tempreadtimemin"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row nonalctest">
+                <div class="col-sm-4 oral-hide">
+                    <div class="input-field">
+                        <input type="number" class="nonoralinp" step="1" min="0" placeholder="Adulterant Test Lot No." name="intect" id="intect" value="">
+                    </div>
+                </div>
+                <div class="col-sm-4 oral-hide">
+                    <div class="input-field">
+                        <input type="text" class="nonoralinp" placeholder="Expiry" name="intectexpiry" id="intectexpiry" value="" onfocus="getblur('intectexpiry')">
+                    </div>
+                </div>
+                <div class="col-sm-4 oral-hide">
+                    <div class="input-field">
+                        <input type="text" class="nonoralinp" placeholder="Visual Colour" name="visualcolor" id="visualcolor" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="row nonalctest">
+                <div class="col-sm-4 oral-hide">
+                    <div class="input-field">
+                        <input type="number" class="nonoralinp" step="1" min="0" placeholder="Creatinine" name="creatinine" id="creatinine" value="">
+                    </div>
+                </div>
+                <div class="col-sm-4 oral-hide">
+                    <div class="input-field">
+                        <input type="text" class="nonoralinp" placeholder="Other Integrity" name="otherintegrity" id="otherintegrity" value="">
+                    </div>
+                </div>
+                <div class="col-sm-4 oral-hide">
+                    <div class="input-field">
+                        <input type="number" step="1" min="0" class="nonoralinp" placeholder="Hydration" name="hudration" id="hudration" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="row nonalctest">
+                <div class="col-sm-6">
+                    <div class="input-field">
+                        <input type="text" class="oralinp" placeholder="Drug Device Name" name="devicename" id="devicename" value="">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="input-field">
+                                <input type="number" class="oralinp" step="1" min="0" placeholder="Ref#" name="reference" id="reference" value="">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-field">
+                                <input type="number" class="oralinp" step="1" min="0" placeholder="Lot#" name="lotno" id="lotno" value="">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-field">
+                                <input type="text" class="oralinp" placeholder="Expiry" name="lotexpiry" id="lotexpiry" value="" onfocus="getblur('lotexpiry');">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="nonalctest">
+
+            <p class="nonalctest"><strong>Drugs Class</strong> N= Negative Results, U= Further Testing Required</p>
+            <div class="row nonalctest">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="input-field">
+                                <label>Cocaine</label>
+                                <select name="cocain" class="oralinp" id="cocain">
+                                    <option value="">Select</option>
+                                    <option value="U">U</option>
+                                    <option value="N">N</option>
+                                </select>
+                                <!--<input type="text" placeholder="Cocain" name="cocain" id="cocain" value="">-->
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-field">
+                                <label>Amp</label>
+                                <select name="amp" class="oralinp" id="amp">
+                                    <option value="">Select</option>
+                                    <option value="U">U</option>
+                                    <option value="N">N</option>
+                                </select>
+                                <!--<input type="text" placeholder="Amp" name="amp" id="amp" value="">-->
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-field">
+                                <label>mAmp</label>
+                                <select name="mamp" class="oralinp" id="mamp">
+                                    <option value="">Select</option>
+                                    <option value="U">U</option>
+                                    <option value="N">N</option>
+                                </select>
+                                <!--<input type="text" placeholder="mAmp" name="mamp" id="mamp" value="">-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="input-field">
+                                <label>THC</label>
+                                <select name="thc" class="oralinp" id="thc">
+                                    <option value="">Select</option>
+                                    <option value="U">U</option>
+                                    <option value="N">N</option>
+                                </select>
+                                <!--<input type="text" placeholder="THC" name="thc" id="thc" value="">-->
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-field">
+                                <label>Opiates</label>
+                                <select name="opiates" class="oralinp" id="opiates">
+                                    <option value="">Select</option>
+                                    <option value="U">U</option>
+                                    <option value="N">N</option>
+                                </select>
+                                <!--<input type="text" placeholder="Opiates" name="opiates" id="opiates" value="">-->
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-field">
+                                <label>Benzo</label>
+                                <select name="benzo" class="oralinp" id="benzo">
+                                    <option value="">Select</option>
+                                    <option value="U">U</option>
+                                    <option value="N">N</option>
+                                </select>
+                                <!--<input type="text" placeholder="Benzo" name="benzo" id="benzo" value="">-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="input-field">
+                                <label>Other</label>
+                                <select name="otherdc" class="oralinp" id="otherdc">
+                                    <option value="">Select</option>
+                                    <option value="U">U</option>
+                                    <option value="N">N</option>
+                                </select>
+                                <!--<input type="text" placeholder="Benzo" name="benzo" id="benzo" value="">-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <p><strong>Collection time of sample <sub>[24 hr]</sub></strong></p>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="input-field">
+                            <input type="hidden" name="ctstime" id="ctstime" placeholder="Time [24 hr]" value="">
+                            <input type="number" step="1" min="00" max="23" onblur="checkhour('ctstimehr','0','23')" name="ctstimehr" placeholder="Hours"
+                                   id="ctstimehr"/></div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="input-field">
+                            <input type="number" step="1" min="00" max="59" onblur="checkminute('ctstimemin')" name="ctstimemin" placeholder="Min"
+                                   id="ctstimemin"/>
+                        </div>
+                    </div>
+                </div>
+            <hr>
+                <div class="section-heading">
+                    <h3>Donor Declaration</h3>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="input-field">
+                            <textarea style="height: 153px">I certify that the specimen(s) accompanying this form is my own. Where on-site screening was performed, such screening was carried out in my presence. In the case of my specimen(s) being sent to the laboratory for testing, I certify that the specimen containers were sealed with tamper evident seals in my presence and the identifying information on the label is correct. I certify that the information provided on this form to be correct and I consent to the release of all test results together with any relevant details contained on this form to the nominated representative of the requesting authority.</textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="input-field">
+                            <!--<textarea placeholder="Sign Here" name="donordecsign" id="donordecsign"></textarea>-->
+                            <label>Signature</label>
+                            <div class="sigPad" id="coc2" style="width:280px;">
+                                <ul class="sigNav">
+                                    <li class="clearButton"><a href="javascript:void(0);" onclick="resetsign('signcoc2');">Clear</a></li>
+                                </ul>
+                                <div class="sig sigWrapper" style="height:auto;">
+                                    <div class="typed"></div>
+                                    <canvas id="coccanvas2" class="pad" width="270" height="100"></canvas>
+                                </div>
+                            </div>
+                            <div id="show-sign2">
+                                <input type="hidden" name="signcoc2" value="0" id="signcoc2">
+                                <input type="hidden" name="cocchangesign2" value="0" id="cocchangesign2">
+                                <img id="cocsign2" src="" />
+                                <p class="coc2-change-sign switchopt"><a href="javascript:void(0)" onclick="showsignpad('coc2','signcoc2');">Change Signature</a> </p>
+                                <p class="coc2-nochange-sign switchopt"><a href="javascript:void(0)" onclick="hidesignpad('coc2','signcoc2');">Keep Original</a> </p>
+                                <br />
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="input-field">
+                                <input type="text" placeholder="Date" name="donordecdate" id="donordecdate" value="" onfocus="getblur('donordecdate')">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <hr>
+            <div class="section-heading">
+                <h3>Collector Certification</h3>
+            </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="input-field">
+                            <textarea style="height: 153px">I certify that I witnessed the Donor signature and that the specimen(s) identified on this form was provided to me by the Donor whose consent and declaration appears above, bears the same Donor identification as set forth above, and that the specimen(s) has been collected and if needed divided, labelled and sealed in accordance with the relevant Standard.
+*If two Collectors are present the second Collector (2) is to perform sample collection/screening for Alcohol and Urine.</textarea>
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="input-field">
+                        <input type="text" placeholder="Collector 1 Name/Number" name="collectorone" id="collectorone" value="">
+                    </div>
+                    <div class="input-field">
+                        <!--<textarea placeholder="Sign Here" name="collectorsignone" id="collectorsignone"></textarea>-->
+                        <label>Signature</label>
+                        <div class="sigPad" id="coc3" style="width:280px;">
+                            <ul class="sigNav">
+                                <li class="clearButton"><a href="javascript:void(0);" onclick="resetsign('signcoc3');">Clear</a></li>
+                            </ul>
+                            <div class="sig sigWrapper" style="height:auto;">
+                                <div class="typed"></div>
+                                <canvas id="coccanvas3" class="pad" width="270" height="100"></canvas>
+                            </div>
+                        </div>
+                        <div id="show-sign3">
+                            <input type="hidden" name="signcoc3" value="0" id="signcoc3">
+                            <input type="hidden" name="cocchangesign3" value="0" id="cocchangesign3">
+                            <img id="cocsign3" src="" />
+                            <p class="coc3-change-sign switchopt"><a href="javascript:void(0)" onclick="showsignpad('coc3','signcoc3');">Change Signature</a> </p>
+                            <p class="coc3-nochange-sign switchopt"><a href="javascript:void(0)" onclick="hidesignpad('coc3','signcoc3');">Keep Original</a> </p>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="input-field"><input type="text" placeholder="Comments or Observation" name="commentscol1" id="commentscol1" value=""></div>
+                <div class="col-sm-6">
+                    <div class="input-field">
+                        <input type="text" placeholder="Collector 2 Name/Number" name="collectortwo" id="collectortwo" value="">
+                    </div>
+                    <div class="input-field">
+                        <!--<textarea placeholder="Sign Here" name="collectorsigntwo" id="collectorsigntwo"></textarea>-->
+                        <label>Signature</label>
+                        <div class="sigPad" id="coc4" style="width:280px;">
+                            <ul class="sigNav">
+                                <li class="clearButton"><a href="javascript:void(0);" onclick="resetsign('signcoc4');">Clear</a></li>
+                            </ul>
+                            <div class="sig sigWrapper" style="height:auto;">
+                                <div class="typed"></div>
+                                <canvas id="coccanvas4" class="pad" width="270" height="100"></canvas>
+                            </div>
+                        </div>
+                        <div id="show-sign4">
+                            <input type="hidden" name="signcoc4" value="0" id="signcoc4">
+                            <input type="hidden" name="cocchangesign4" value="0" id="cocchangesign4">
+                            <img id="cocsign4" src="" />
+                            <p class="coc4-change-sign switchopt"><a href="javascript:void(0)" onclick="showsignpad('coc4','signcoc4');">Change Signature</a> </p>
+                            <p class="coc4-nochange-sign switchopt"><a href="javascript:void(0)" onclick="hidesignpad('coc4','signcoc4');">Keep Original</a> </p>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-field"><input type="text" placeholder="Comments or Observation" name="comments" id="comments" value=""></div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="label-field">On-Site Screening Report</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row onsitescreening">
+                        <div class="col-xs-6">
+                            <div class="input-field">
+                                <div class="checkbox-field">
+                                    <input type="checkbox" id="final" name="onsitescreeningrepo" value="1">Final<label for="final"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="input-field">
+                                <div class="checkbox-field">
+                                    <input type="checkbox" id="interim" name="onsitescreeningrepo" value="2">Interim<label for="interim"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+
+
+                <p id="formleft">Please Note: <span id="formleftcount"></span> more COC <span id="formlefttext"></span> left to be completed. </p>
+            <div class="btn-container">
+                <input type="hidden" id="drugpositive" name="drugpositive" value="0" />
+                <input type="hidden" id="cocid" name="cocid" value="" />
+                <button type="button" class="gray-btn" onclick="savecocform('0');">Pending<span><i class="fa fa-save"></i></span></button>
+                <button id="completecoc" type="button" class="green-btn" disabled="disabled" onclick="savecocform('1');">Completed<span><i class="fa fa-check"></i></span></button>
+            </div>
+</form>
+            <div class="modal fade" id="tnc" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h2 class="modal-title">Terms and Conditions</h2>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="clearfix  col-md-12">
+                                <li>
+                                    Standard operating hours are Monday to Friday 6.30am until 5.30pm.  Penalty rates apply as follows.
+                                    <ul class="col-md-12">
+                                        <li>
+                                            Monday to Friday 5.30pm-6.30am and all day Saturday penalty on hourly rates x1.5
+                                        </li>
+                                        <li>
+                                            Sunday and Public Holiday penalty on hourly rates x 2.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>All prices are exclusive of GST and valid for 60 days.  Upon accepting this proposal, the prices shall remain valid for a period of 12 months, unless otherwise stated.</li>
+                                <li>As per table 1, cancellations within 24 hours will incur a 2 hour scheduled service fee.  Cancellations in writing will be recognised.  If any additional costs have been incurred for the booked and cancelled service, this fee may be passed on.</li>
+                                <li>When ordering products or other consumable, freight shall be added.</li>
+                                <li>Callout services are at one hour on site, additional hours charged at hourly rate(s) as above.  Additional pp rates as above</li>
+                            </ul>
+                            <h3>Training</h3>
+                            <ul class="col-md-12">
+                                <li>When booking training for your employees, to take place on your work site, travel, accommodation and any ancillary costs may apply.</li>
+                                <li>Cancellations for in-house courses must be made 5 working days ahead of time and any ancillary expenses already incurred related to the booking shall also be passed on.</li>
+                            </ul>
+                            <h3>For ASQA in house courses</h3>
+                            <ul class="col-md-12">
+                                <li>Cancellations must be made 5 working days ahead of time, otherwise a minimum of 5 people will be charged and already incurred ancillary charges will be passed on.</li>
+                                <li>
+                                    If 5 participants are not achieved in these arranged courses, 5 will still be charged.
+                                </li>
+                                <li>For cancellations under 5 days, a substitute may be nominated within 3 days of the scheduled course.</li>
+                                <li>No-shows and waiting time will be charged at full rates.</li>
+                                <li>Certificates will not be issued until payment is received.</li>
+                                <li>Drug-Safe Australia reserves the right to cancel or postpone a training session to another day. All affected participants will be offered the alternate day or a refund.</li>
+                            </ul>
+                            <h3>Disclaimer</h3>
+                            <p>This proposal contains confidential information which is provided to the prospective client to enable them to make an informed decision about the service (s). This information is submitted to the prospective client with the understanding that the prospective client will not share this proposal, its information or any part of, with anyone other than fellow employees of the prospective client organisation who is directly responsible for evaluating and making a decision on proceeding with the proposal.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <footer>&copy; Copyright 2017 Drug-Safe Communities. <a href="javascript:void(0)" onclick="showTnc();">Terms and Conditions</a></footer>
+        <script type="text/javascript" src="js/coc.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/sign/jquery.signaturepad.js"></script>
+        <script src="assets/js/sign/assets/numeric-1.2.6.min.js"></script>
+        <script src="assets/js/sign/assets/json2.min.js"></script>
+        <script src="assets/js/sign/assets/bezier.js"></script>
+        <script type="text/javascript">
+            $('#cocdate, #dob, #lotexpiry, #intectexpiry, #donordecdate, #donorsigndate').datepick({dateFormat: 'dd/mm/yyyy'});
+            //$('#receiveronetime, #receivertwotime').wickedpicker({title: 'Time'});
+            $('#tempreadtime, #voidtime,#dontesttime2, #dontesttime1').wickedpicker({title: 'Time', twentyFour:true});
+
+            $('.employment input:checkbox').click(function() {
+                $('.employment input:checkbox').not(this).prop('checked', false);
+            });
+            $('.onsitescreening input:checkbox').click(function() {
+                var getid = $(this).attr('id');
+                $('.onsitescreening input:checkbox').not(this).prop('checked', false);
+                if(getid == 'final' && $('#'+getid).is(':checked')){
+                    $('#completecoc').prop('disabled',false);
+                    $('#completecoc').css('background','rgba(17,156,111,1)');
+                }else {
+                    $('#completecoc').prop('disabled',false);
+//                    $('#completecoc').css('background','rgba(17,156,111,0.6)');
+                    $('#completecoc').css('background','rgba(17,156,111,1)');
+                }
+            });
+            $('#employee').click(function () {
+                if ($('#employee').is(':checked')) {
+                    $('#contractordet').prop('disabled',true);
+                }
+            });
+            $('#contractor').click(function () {
+                if ($('#contractor').is(':checked')) {
+                    $('#contractordet').prop('disabled',false);
+                }else{
+                    $('#contractordet').prop('disabled',true);
+                }
+            });
+            $(document).ready(function () {
+                /*if($('#final').is(':checked')){
+                    $('#completecoc').prop('disabled',false);
+                    $('#completecoc').css('background','rgba(17,156,111,1)');
+                }else{
+                    if($('#completecoc').is(':disabled')){
+                        $('#completecoc').css('background','rgba(17,156,111,0.6)');
+                    }
+                }*/
+                $('#coc1, #coc2, #coc3, #coc4').signaturePad({
+                    drawOnly: true,
+                    drawBezierCurves: true,
+                    lineTop: 200
+                });
+                /*$('#coccanvas1').click(function () {
+                    $('#signcoc1').val(1);
+                });
+                $('#coccanvas2').click(function () {
+                    $('#signcoc2').val(1);
+                });
+                $('#coccanvas3').click(function () {
+                    $('#signcoc3').val(1);
+                });
+                $('#coccanvas4').click(function () {
+                    $('#signcoc4').val(1);
+                });*/
+                /*$('#coccanvas5').click(function () {
+                    $('#signcoc5').val(1);
+                });
+                $('#coccanvas6').click(function () {
+                    $('#signcoc6').val(1);
+                });*/
+            });
+        </script>
+    </body>
+    </html>

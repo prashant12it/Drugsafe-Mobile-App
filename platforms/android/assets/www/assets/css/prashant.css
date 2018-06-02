@@ -1,0 +1,106 @@
+.loader-modal {
+    display:    none;
+    position:   fixed;
+    z-index:    9999;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+    url('../images/loading.gif')
+    50% 50%
+    no-repeat;
+}
+.drugoptfield{display: none}
+.datepick-month-year{width:50%; float: left; text-align: center}
+#opencoc{display: none}
+input[readonly]{
+    cursor: no-drop;
+}
+.page-back{
+    text-align: center;
+    padding: 10px 0px;
+}
+.page-back i{
+    width: 100%;
+}
+.green-btn.clientsitependings span i{
+    padding: 23px 12px;
+}
+.green-btn span{
+    text-align: center;
+}
+.deldonor{float: right}
+.deldonor i{text-align: right}
+.deldonor a{padding: 10px}
+.deldonor a, .deldonor a:hover, .deldonor a:focus{color: #1e8866; font-size: 18px}
+input[type="tel"], input[type="number"]{width: 100%; height: 44px}
+.customlab{font-size: 17px}
+.customlab span{font-size: 12px}
+select.hidedownarrow{-webkit-appearance: none; appearance: none; -moz-appearance: none}
+.custommodal .btn{
+    width: 100%;
+    padding: 6px 35px;
+    font-size: 15px;
+}
+.custommodal .infobtn{
+    padding: 6px 10px;
+}
+.custommodal .infobtn .spleft{
+    float: left;
+}
+.custommodal .infobtn .spright{
+    float: right;
+}
+.custommodal .modal-header h4{
+    text-align: center;
+}
+.custommodal .modal-body p:first-child{
+    margin-top: 20px;
+}
+.custommodal .modal-footer{
+    margin-top: 0px;
+}
+.custommodal .modaltable{
+    table-layout:fixed;word-wrap:break-word;
+}
+.custommodal .modaltable th, .custommodal .sosmodaltable th{text-align: right}
+.custommodal .modaltable .nowhitespace{
+    white-space: unset;
+}
+.thankyounote{font-size:14px;}
+.forms-list .green-btn, .header-title, .product-list-row h3{text-transform: capitalize}
+.orderhistorytab{background: rgba(255,255,255,0.6)}
+.orderhistorytab .table tbody tr td .green-btn2{min-width: 100px}
+#szrole option{background: rgba(255, 255, 255, 0.4) none repeat scroll 0 0;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    color: #000;
+    font-size: 17px;
+    font-weight: 400;
+    height: 54px;
+    line-height: 1;
+    padding: 10px;}
+.repsignature, .switchopt{display: none; font-weight: 300}
+.switchopt a{color: #1e8866}
+.custommodal .coc-det-head{
+    color: #179566;
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+}
+.onlyforagent{display: none}
+.autopopulate-fields label{font-size: 16px; padding: 10px 0px}
+.autopopulate-fields input{width: 30%; float: left; margin-right: 10px}
+.autopopulate-fields .label-field{margin-bottom: 10px}
+.othertestsec{display: none}
+#tnc ul{margin-bottom: 20px}
+@media (max-width: 767px) {
+    .custommodal .table-responsive > .table > thead > tr > th, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > tbody > tr > td, .table-responsive > .table > tfoot > tr > td {
+        white-space: inherit;
+    }
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select.hidedownarrow { line-height: normal  }
+}

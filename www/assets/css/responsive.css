@@ -1,0 +1,33 @@
+@media (min-width:768px) {
+	.login-page .site-header{margin-bottom:50px;}
+	/*.login-box{padding-top:100px;}*/
+	.login-footer{position:absolute;left:0;right:0;bottom:0;}
+}
+@media (max-width:767px) {
+	.login-options div a{max-width:220px;margin-top:20px;}
+	.form-container .btn-container .gray-btn, .form-container .btn-container .green-btn{font-size:14px;padding:16px 46px 13px 8px;}
+}
+@media (max-width:380px) {
+	.login-options div a{max-width:160px;margin-top:0;}
+	
+	
+}
+@media (max-width:360px) and (max-height:640px) {
+	
+	
+}
+@media (min-height:560px) {	.category-listing-page .page-container{padding-top:20px;padding-bottom:20px;}}@media (max-width:320px) and (max-height:480px) {
+	.login-page .franchisee-menu{padding-top:30px;padding-bottom:20px;}
+}@media (max-width:1024px) and (min-width:768px) {	.login-box {/*padding-top: 150px;*/}
+.customlab{font-size: 14px}}@media (max-width:768px) and (max-height:1024px) and (min-height:768px) {	.login-box {/*padding-top: 245px;*/}}
+@media (min-height:601px){
+	.vcc{    position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+@media (max-width: 480px) {
+	.welcome-screen{background-size: inherit}
+
+}
